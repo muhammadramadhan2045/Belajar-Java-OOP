@@ -1,0 +1,59 @@
+@startuml
+
+class Account{
+    -namaAwal :String
+    -namaAkhir : String
+    -no_Akun :int
+    -tabungan : Tabungan
+    -thisMoney:Uang
+    +Account(no_Akun:int,namaAwal :String,namaAkhir : String)
+    +getnamaAwal()
+    +getnamaAkhir()
+    +getNo_Akun()
+    +getThisMoney()  : Uang
+    +setThisMoney(thisMoney :Uang)
+
+}
+class Bank{
+    - akun :Account[]
+    -jumlahAkun :int
+    -no_Akun :int
+    +Bank()
+    +tambahAkun(no_Akun:int ,namaAwal:String ,namaAkhir:String )
+    +getJumlahNasabah():int
+    +getAkun(int indeks):Account
+
+}
+class Tabungan{
+    -gaji :int
+    -transfer :int
+    -info : String
+    +Tabungan()
+    +Tabungan(saldo:int)
+    +getSaldo() :int
+    +getTranfer() :int
+    +simpanUang((jumlah:int)
+    +ambilUang() :boolean
+    +info():String
+
+}
+
+class Uang{
+    -proteksi: int
+    -info :String
+    +Uang()
+    +Uang(saldo:int)
+    +Uang((saldo:int,tingkatBunga : int)
+    +getSaldo()
+    +ambilUang(jumlah:int) :boolean
+    +getTranfer() :int
+    +simpanUang((jumlah:int)
+    +info():String
+}
+
+
+Tabungan <|-- Uang
+Bank *-- Account : melayani >
+Account *--Tabungan :has 1 >
+
+@enduml

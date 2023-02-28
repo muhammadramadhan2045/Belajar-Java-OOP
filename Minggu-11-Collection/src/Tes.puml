@@ -1,0 +1,20 @@
+@startuml
+class Tabungan{
+    -int gaji
+    +Tabungan(saldo:int)
+    +getSaldo()
+    +simpanUang()
+    +ambilUang()
+
+}
+
+class pengambilanUang{
+    -proteksi int
+    +pengambilanUang(saldo:int)
+    +pengambilanUang((saldo:int,tingkatBunga : int)
+    +getSaldo()
+    +ambilUang(jumlah:int) :boolean
+}
+
+Tabungan <|-- pengambilanUang
+@enduml
